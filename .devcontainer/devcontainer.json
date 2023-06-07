@@ -1,0 +1,67 @@
+{
+    "name": "Salesforce Project (Community)",
+    "dockerFile": "Dockerfile",
+
+	// "postCreateCommand": "git config --global user.email \"gonzalezji@globalhitss.com\" && git config --global user.name \"Jair Ignacio Gonzalez Gayosso\"",
+	"postCreateCommand": "git config --global user.email \"gonzalezji@globalhitss.com\" ; git config --global user.name \"Jair Ignacio Gonzalez Gayosso\" ; npm install --global vlocity ; sfdx autocomplete --refresh-cache",
+
+    // Configure tool-specific properties.
+    "customizations": {
+      // Configure properties specific to VS Code.
+      "vscode": {
+        // Set *default* container specific settings.json values on container create.
+        "settings": { 
+          "salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+		  "salesforcedx-vscode-apex.advanced.enable-completion-statistics": true,
+		  "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
+		  "SFDoc.username": "Jair Ignacio Gonzalez Gayosso",
+		  "workbench.editor.wrapTabs": true
+        },
+        
+        // Add the IDs of extensions you want installed when the container is created.
+        "extensions": [
+			"redhat.vscode-xml",
+			"salesforce.salesforcedx-vscode",
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"HugoOM.sfdx-autoheader",
+			"VignaeshRamA.sfdx-package-xml-generator",
+			"eamodio.gitlens",
+			"drossi750.vscode-salesforce-toolkit",
+			"financialforce.lana",
+			"chuckjonas.apex-pmd",
+			"VignaeshRamA.sfdx-command-builder",
+			"huizhou.githd",
+			"curlybracket.vlocode",
+			"victorgz.vscode-salesforce-colorg"
+        ]
+      }
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "vscode",
+			"userUid": "automatic",
+			"userGid": "automatic"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/bash-command:1": {
+			"command": "sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"simple\"/g' ~/.zshrc"
+		},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+			"plugins": "ssh-agent npm git gh",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+			"username": "root"
+		}
+	}
+}
